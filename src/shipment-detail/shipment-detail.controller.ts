@@ -2,8 +2,10 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ShipmentDetail } from 'src/entity/shipment-details';
 import { ShipmentDetailService } from './shipment-detail.service';
-import { CreateShipmentDetailDto } from 'src/dto/create-shipment-detail';
+import { CreateShipmentDetailDto } from './dto/create-shipment-detail';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('shipment-details')
 @Controller('shipment-details')
 export class ShipmentDetailController {
   constructor(private readonly shipmentDetailsService: ShipmentDetailService) {}

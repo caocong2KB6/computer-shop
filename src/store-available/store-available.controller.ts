@@ -1,8 +1,10 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { StoreAvailableService } from './store-available.service';
 import { StoreAvailable } from 'src/entity/store-available';
-import { CreateStoreAvailableDto } from 'src/dto/create-store-available';
+import { CreateStoreAvailableDto } from './dto/create-store-available';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('storeAvailables')
 @Controller('storeAvailables')
 export class StoreAvailableController {
   constructor(private readonly storeAvailablesService: StoreAvailableService) {}

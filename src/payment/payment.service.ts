@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreatePaymentDto } from 'src/dto/create-payment';
+import { CreatePaymentDto } from './dto/create-payment';
 import { Payment, PaymentDocument } from 'src/entity/payment';
 
 @Injectable()
