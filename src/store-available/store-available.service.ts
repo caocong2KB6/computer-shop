@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateStoreAvailableDto } from 'src/dto/create-store-available';
+import { CreateStoreAvailableDto } from './dto/create-store-available';
 import { StoreAvailable, StoreAvailableDocument } from 'src/entity/store-available';
 
 @Injectable()
