@@ -11,14 +11,15 @@ async function bootstrap() {
     .setTitle('Cats example')
     .setDescription('The cats API description')
     .setVersion('1.0')
-    .addTag('cats')
+    .addTag('TechShop')
+    .addBearerAuth() // This is the key part to add JWT to Swagger
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
 
-  console.log("OK");
-  await app.listen(3000);
+  console.log("swagger run in http://localhost:5000/api");
+  await app.listen(5000);
 
   if (module.hot) {
     module.hot.accept();

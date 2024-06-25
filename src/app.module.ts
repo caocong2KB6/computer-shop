@@ -11,6 +11,7 @@ import { StoreAvailableModule } from './store-available/store-available.module';
 import { ShipmentDetailModule } from './shipment-detail/shipment-detail.module';
 import { PaymentModule } from './payment/payment.module';
 import { Connection } from 'mongoose';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { Connection } from 'mongoose';
     StoreAvailableModule,
     ShipmentDetailModule,
     PaymentModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

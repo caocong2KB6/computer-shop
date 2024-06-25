@@ -9,5 +9,6 @@ import { Account, AccountSchema } from 'src/entity/accounts';
   imports: [MongooseModule.forFeature([{ name: Account.name, schema: AccountSchema }])],
   controllers: [AccountController],
   providers: [AccountService],
+  exports: [AccountService], // Ensure AccountService is exported if needed
 })
 export class AccountModule {}
