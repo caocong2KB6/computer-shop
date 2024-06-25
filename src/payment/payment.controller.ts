@@ -2,7 +2,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { PaymentService } from './payment.service';
 import { Payment } from 'src/entity/payment';
-import { CreatePaymentDto } from './dto/create-payment';
+import { CreatePaymentDto } from './dto/create-payment.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('payments')

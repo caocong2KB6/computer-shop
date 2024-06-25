@@ -1,6 +1,6 @@
 // src/app.module.ts
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
+import { Module, OnModuleInit } from '@nestjs/common';
+import { InjectConnection, MongooseModule } from '@nestjs/mongoose';
 import { ProductModule } from './products/products.module';
 import { mongooseConfig } from './mongoose.config';
 import { CategoryModule } from './category/category.module';
@@ -10,6 +10,8 @@ import { ShopModule } from './shop/shop.module';
 import { StoreAvailableModule } from './store-available/store-available.module';
 import { ShipmentDetailModule } from './shipment-detail/shipment-detail.module';
 import { PaymentModule } from './payment/payment.module';
+import { Connection } from 'mongoose';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -22,8 +24,15 @@ import { PaymentModule } from './payment/payment.module';
     StoreAvailableModule,
     ShipmentDetailModule,
     PaymentModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule implements OnModuleInit {
+  constructor(@InjectConnection() private readonly connection: Connection) {}
+
+  onModuleInit() {
+    console.log('Connected to database:', this.connection.name);
+  }
+}

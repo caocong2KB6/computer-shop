@@ -2,7 +2,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { AccountService } from './account.service';
 import { Account } from 'src/entity/accounts';
-import { CreateAccountDto } from './dto/create-account';
+import { CreateAccountDto } from './dto/create-account.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('accounts')
@@ -17,7 +17,7 @@ export class AccountController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<Account> {
-    return this.accountsService.findOne(id);
+    return this.accountsService.findOneById(id);
   }
 
   @Post()

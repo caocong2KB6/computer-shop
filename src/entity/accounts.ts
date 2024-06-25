@@ -19,6 +19,12 @@ export class Account {
 
   @Prop({ required: true })
   status: string;
+
+  @Prop()
+  resetPasswordToken: string;
+
+  @Prop()
+  resetPasswordExpires: Date;
 }
 
 export const AccountSchema = SchemaFactory.createForClass(Account);
