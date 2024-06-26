@@ -8,9 +8,8 @@ import { jwtConstants } from 'src/constants';
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({
-      secretOrKey: "jwtConstants.secret",
+      secretOrKey: "topSecret51",
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      ignoreExpiration: false,
     });
   }
 
