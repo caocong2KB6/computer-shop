@@ -31,4 +31,9 @@ export class CreateProductDto {
   @IsNotEmpty()
   @IsString()
   status: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  imageUrl: string;
 }

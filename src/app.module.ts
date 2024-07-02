@@ -12,6 +12,7 @@ import { ShipmentDetailModule } from './shipment-detail/shipment-detail.module';
 import { PaymentModule } from './payment/payment.module';
 import { Connection } from 'mongoose';
 import { AuthModule } from './auth/auth.module';
+import { CartModule } from './cart/cart.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { AuthModule } from './auth/auth.module';
     ShipmentDetailModule,
     PaymentModule,
     AuthModule,
+    CartModule,
   ],
   controllers: [],
   providers: [],

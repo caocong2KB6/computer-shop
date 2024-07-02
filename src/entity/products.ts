@@ -22,6 +22,9 @@ export class Product {
     
     @Prop({ required: true })
     status: string;
+
+    @Prop({ required: true })
+    imageUrl: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
