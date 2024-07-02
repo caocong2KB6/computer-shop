@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateShopDto } from './dto/create-shop.dto';
-import { Shop, ShopDocument } from 'src/entity/shops';
+import { Shop, ShopDocument } from '../entity/shops';
 
 @Injectable()
 export class ShopService {

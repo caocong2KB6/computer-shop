@@ -1,6 +1,6 @@
 // src/shipment-details/shipment-details.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
-import { ShipmentDetail } from 'src/entity/shipment-details';
+import { ShipmentDetail } from '../entity/shipment-details';
 import { ShipmentDetailService } from './shipment-detail.service';
 import { CreateShipmentDetailDto } from './dto/create-shipment-detail.dto';
 import { ApiTags } from '@nestjs/swagger';

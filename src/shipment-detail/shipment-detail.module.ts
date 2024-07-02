@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ShipmentDetailController } from './shipment-detail.controller';
 import { ShipmentDetailService } from './shipment-detail.service';
-import { ShipmentDetail, ShipmentDetailSchema } from 'src/entity/shipment-details';
+import { ShipmentDetail, ShipmentDetailSchema } from '../entity/shipment-details';
 
 
 @Module({

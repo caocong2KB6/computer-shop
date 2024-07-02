@@ -1,7 +1,7 @@
 // src/Orders/Orders.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { OrderService } from './order.service';
-import { Order } from 'src/entity/orders';
+import { Order } from '../entity/orders';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { ApiTags } from '@nestjs/swagger';
 

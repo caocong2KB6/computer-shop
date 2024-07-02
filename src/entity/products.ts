@@ -1,4 +1,3 @@
-// src/products/schemas/product.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Schema as MongooseSchema } from 'mongoose';
 
@@ -14,6 +13,9 @@ export class Product {
 
     @Prop({ required: true })
     description: string;
+
+    @Prop({ required: true, min: 0 })
+    price: number;  // New property for price with validation
     
     @Prop({ required: true })
     color: string;

@@ -1,7 +1,7 @@
 // src/categorys/categorys.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { CategoryService } from './category.service';
-import { Category } from 'src/entity/categories';
+import { Category } from '../entity/categories';
 import { CreateCategoryDto } from './dto/create-category.dto';
 
 import { ApiTags } from '@nestjs/swagger';

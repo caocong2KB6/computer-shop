@@ -1,7 +1,7 @@
 // src/accounts/accounts.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { AccountService } from './account.service';
-import { Account } from 'src/entity/accounts';
+import { Account } from '../entity/accounts';
 import { CreateAccountDto } from './dto/create-account.dto';
 import { ApiTags } from '@nestjs/swagger';
 

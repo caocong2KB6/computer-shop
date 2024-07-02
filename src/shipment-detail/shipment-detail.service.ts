@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateShipmentDetailDto } from './dto/create-shipment-detail.dto';
-import { ShipmentDetail, ShipmentDetailDocument } from 'src/entity/shipment-details';
+import { ShipmentDetail, ShipmentDetailDocument } from '../entity/shipment-details';
 
 @Injectable()
 export class ShipmentDetailService {
