@@ -1,7 +1,7 @@
 // src/shops/shops.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ShopService } from './shop.service';
-import { Shop } from 'src/entity/shops';
+import { Shop } from '../entity/shops';
 import { CreateShopDto } from './dto/create-shop.dto';
 import { ApiTags } from '@nestjs/swagger';
 

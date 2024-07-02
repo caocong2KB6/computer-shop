@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AccountController } from './account.controller';
 import { AccountService } from './account.service';
-import { Account, AccountSchema } from 'src/entity/accounts';
+import { Account, AccountSchema } from '../entity/accounts';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Account.name, schema: AccountSchema }])],

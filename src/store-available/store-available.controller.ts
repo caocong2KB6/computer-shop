@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { StoreAvailableService } from './store-available.service';
-import { StoreAvailable } from 'src/entity/store-available';
+import { StoreAvailable } from '../entity/store-available';
 import { CreateStoreAvailableDto } from './dto/create-store-available.dto';
 import { ApiTags } from '@nestjs/swagger';
 

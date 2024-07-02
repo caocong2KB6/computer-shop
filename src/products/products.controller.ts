@@ -1,7 +1,7 @@
 // src/products/products.controller.ts
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ProductService } from './products.service';
-import { Product } from 'src/entity/products';
+import { Product } from '../entity/products';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ApiTags } from '@nestjs/swagger';
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { CreateAccountDto } from './dto/create-account.dto';
-import { Account, AccountDocument } from 'src/entity/accounts';
+import { CreateAccountDto } from './dto/create-account.dto'; 
+import { Account, AccountDocument } from '../entity/accounts';
 
 @Injectable()
 export class AccountService {
