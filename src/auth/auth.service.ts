@@ -38,6 +38,8 @@ export class AuthService {
     const accessToken = this.jwtService.sign(payload);
 
     return {
+      sub: user._doc._id.toString(),
+      success: 1,
       access_token: accessToken
     };
   }

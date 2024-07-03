@@ -17,13 +17,9 @@ export class CreateAccountDto {
   @IsString()
   password: string;
 
-  @ApiProperty()
-  @IsNotEmpty()
   @IsString()
   role: string;
 
-  @ApiProperty()
-  @IsNotEmpty()
   @IsString()
   status: string;
 }

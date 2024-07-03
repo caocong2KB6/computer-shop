@@ -4,6 +4,7 @@ import { ProductService } from './products.service';
 import { Product } from '../entity/products';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { UpdateProductDto } from './dto/update-product.dto';
 
 @ApiTags('products')
 @Controller('products')
@@ -26,7 +27,7 @@ export class ProductController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateProductDto: Partial<Product>): Promise<Product> {
+  async update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto): Promise<Product> {
     return this.productsService.update(id, updateProductDto);
   }
 
