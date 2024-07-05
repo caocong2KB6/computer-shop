@@ -13,4 +13,14 @@ export class UpdateAccountDto {
   @IsString()
   lastName: string;
 
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  address: string;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsString()
+  phoneNumber: string;
+
 }

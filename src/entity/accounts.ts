@@ -27,6 +27,12 @@ export class Account {
   lastName: string;
 
   @Prop()
+  address: string;
+
+  @Prop()
+  phoneNumber: string;
+
+  @Prop()
   resetPasswordToken: string;
 
   @Prop()

@@ -23,6 +23,11 @@ export class CartController {
     return this.cartService.findOne(id);
   }
 
+  @Get('user/:userId')
+  async findByUserId(@Param('userId') userId: string): Promise<any> {
+    return this.cartService.findByUserId(userId);
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.cartService.remove(id);
