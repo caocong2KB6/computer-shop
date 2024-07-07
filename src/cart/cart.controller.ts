@@ -23,13 +23,18 @@ export class CartController {
     return this.cartService.findOne(id);
   }
 
-  @Get('user/:userId')
-  async findByUserId(@Param('userId') userId: string): Promise<any> {
-    return this.cartService.findByUserId(userId);
+  @Get('user/:accountId')
+  async getProductsByAccountId(@Param('accountId') accountId: string): Promise<any> {
+    return this.cartService.findByUserId(accountId);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.cartService.remove(id);
+  }
+
+  @Delete(':accountId/:productId')
+  async deleteCartByAccountIdAndProductId(@Param('accountId') accountId: string, @Param('productId') productId: string) {
+    return this.cartService.deleteCartByAccountIdAndProductId(accountId, productId);
   }
 }
