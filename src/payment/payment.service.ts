@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { Payment, PaymentDocument } from '../entity/payment';
+import { UpdatePaymentDto } from './dto/update-payment.dto';
 
 @Injectable()
 export class PaymentService {
@@ -22,7 +23,19 @@ export class PaymentService {
     return createdPayment.save();
   }
 
+  async createReturnPaymentId(createPaymentDto: CreatePaymentDto): Promise<string> {
+    const createdPayment = new this.paymentModel(createPaymentDto);
+    return (await createdPayment.save())._id.toString();
+  }
+
   async update(id: string, updatePaymentDto: Partial<Payment>): Promise<Payment> {
+    return this.paymentModel.findByIdAndUpdate(id, updatePaymentDto, { new: true }).exec();
+  }
+
+  async updateStatus(id: string): Promise<Payment> {
+    const updatePaymentDto = new UpdatePaymentDto();
+    updatePaymentDto.status = "True";
+
     return this.paymentModel.findByIdAndUpdate(id, updatePaymentDto, { new: true }).exec();
   }
 

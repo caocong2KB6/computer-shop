@@ -21,12 +21,12 @@ export class OrderController {
   }
 
   @Get('user/:accountId')
-  async getProductsByAccountId(@Param('accountId') accountId: string): Promise<any> {
+  async findOneByAccountId(@Param('accountId') accountId: string): Promise<Order> {
     return this.ordersService.findByUserId(accountId);
   }
 
   @Post()
-  async create(@Body() createOrderDto: CreateOrderDto): Promise<Order> {
+  async create(@Body() createOrderDto: CreateOrderDto): Promise<CreateOrderDto> {
     return this.ordersService.create(createOrderDto);
   }
 

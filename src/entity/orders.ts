@@ -12,14 +12,17 @@ export class Order {
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Shop', required: true })
   shopId: string;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Product', required: true })
-  productId: string;
-
   @Prop({ required: true })
   quantity: number;
 
   @Prop({ required: true })
+  totalAmount: number;
+
+  @Prop({ required: true })
   address: string;
+
+  @Prop({ required: true })
+  dateTime: Date;
 
   @Prop({ required: true })
   status: string;

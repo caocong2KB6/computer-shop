@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Order, OrderDocument } from '../entity/orders';
 import { CreateOrderDto } from './dto/create-order.dto';
-import { ProductDto } from 'products/dto/product.dto';
 
 @Injectable()
 export class OrderService {
@@ -17,29 +16,22 @@ export class OrderService {
     return this.orderModel.findById(id).exec();
   }
 
-  async findByUserId(userId: string): Promise<any> {
-    const cartItems = await this.orderModel.find({ accountId: userId })
-      .populate('productId')
-      .exec();
-      
-     // Extract and return only the product information
-    return cartItems.map(cartItem => {
-      const product = cartItem.productId as unknown as ProductDto;
+  async findByUserId(accountId: string): Promise<any> {
+    return this.orderModel.find({accountId: accountId}).exec();
+  }
 
-      return {
-        productId: product._id,
-        name: product.name,
-        description: product.description,
-        price: product.price,
-        color: product.color,
-        imageUrl: product.imageUrl,
-      };
-      });
-    }
+  async create(createOrderDto: CreateOrderDto): Promise<CreateOrderDto> {
+    createOrderDto.dateTime = new Date(Date.now());
 
-  async create(createOrderDto: CreateOrderDto): Promise<Order> {
     const createdOrder = new this.orderModel(createOrderDto);
     return createdOrder.save();
+  }
+
+  async createReturnOrderId(createOrderDto: CreateOrderDto): Promise<string> {
+    createOrderDto.dateTime = new Date(Date.now());
+
+    const createdOrder = new this.orderModel(createOrderDto);
+    return (await createdOrder.save())._id.toString();
   }
 
   async update(id: string, updateOrderDto: Partial<Order>): Promise<Order> {
