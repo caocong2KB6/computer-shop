@@ -12,9 +12,6 @@ export class Cart {
     productId: string;
   
     @Prop({ required: true })
-    quantity: number;
-  
-    @Prop({ required: true })
     status: string;
 }
 

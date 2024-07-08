@@ -1,9 +1,9 @@
 // src/accounts/accounts.controller.ts
-import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
+import { Controller, Get, Put, Delete, Param, Body } from '@nestjs/common';
 import { AccountService } from './account.service';
 import { Account } from '../entity/accounts';
-import { CreateAccountDto } from './dto/create-account.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { UpdateAccountDto } from './dto/update-account.dto';
 
 @ApiTags('accounts')
 @Controller('accounts')
@@ -20,13 +20,8 @@ export class AccountController {
     return this.accountsService.findOneById(id);
   }
 
-  @Post()
-  async create(@Body() createAccountDto: CreateAccountDto): Promise<Account> {
-    return this.accountsService.create(createAccountDto);
-  }
-
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateAccountDto: Partial<Account>): Promise<Account> {
+  async update(@Param('id') id: string, @Body() updateAccountDto: UpdateAccountDto): Promise<Account> {
     return this.accountsService.update(id, updateAccountDto);
   }
 

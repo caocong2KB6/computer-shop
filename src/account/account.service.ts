@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateAccountDto } from './dto/create-account.dto'; 
 import { Account, AccountDocument } from '../entity/accounts';
+import { UpdateAccountDto } from './dto/update-account.dto';
 
 @Injectable()
 export class AccountService {
@@ -21,6 +22,8 @@ export class AccountService {
   }
 
   async create(account: CreateAccountDto): Promise<Account> {
+    account.role = "User";
+    account.status = "1"
     const createdAccount = new this.accountModel(account);
     return createdAccount.save();
   }
@@ -33,7 +36,7 @@ export class AccountService {
     return this.accountModel.findById(id).exec();
   }
 
-  async update(id: string, updateAccountDto: Partial<Account>): Promise<Account> {
+  async update(id: string, updateAccountDto: UpdateAccountDto): Promise<Account> {
     return this.accountModel.findByIdAndUpdate(id, updateAccountDto, { new: true }).exec();
   }
 

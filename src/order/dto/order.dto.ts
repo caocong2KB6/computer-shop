@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, IsNumber, IsMongoId, IsDate } from 'class-validator';
 import { Types } from 'mongoose';
 
-export class CreateOrderDto {
+export class OrderDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsMongoId()

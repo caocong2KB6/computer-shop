@@ -16,9 +16,22 @@ export class OrderService {
     return this.orderModel.findById(id).exec();
   }
 
-  async create(createOrderDto: CreateOrderDto): Promise<Order> {
+  async findByUserId(accountId: string): Promise<any> {
+    return this.orderModel.find({accountId: accountId}).exec();
+  }
+
+  async create(createOrderDto: CreateOrderDto): Promise<CreateOrderDto> {
+    createOrderDto.dateTime = new Date(Date.now());
+
     const createdOrder = new this.orderModel(createOrderDto);
     return createdOrder.save();
+  }
+
+  async createReturnOrderId(createOrderDto: CreateOrderDto): Promise<string> {
+    createOrderDto.dateTime = new Date(Date.now());
+
+    const createdOrder = new this.orderModel(createOrderDto);
+    return (await createdOrder.save())._id.toString();
   }
 
   async update(id: string, updateOrderDto: Partial<Order>): Promise<Order> {
